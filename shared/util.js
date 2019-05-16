@@ -1312,16 +1312,6 @@ function deck_count_types(deck, type, side) {
 }
 
 //
-function deck_count(deck) {
-  let count = 0;
-  deck.mainDeck.forEach(card => {
-    if (card.quantity == 9999) count += 1;
-    else count += card.quantity;
-  });
-  return count;
-}
-
-//
 function compare_cards(a, b) {
   // Yeah this is lazy.. I know
   a = cardsDb.get(a.id);
