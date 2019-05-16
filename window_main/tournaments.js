@@ -1,8 +1,6 @@
 /*
 global
   $$,
-  addCardSeparator,
-  addCardTile,
   change_background,
   createDivision,
   createSelect,
@@ -21,6 +19,8 @@ global
   urlDecode,
   userName,
 */
+
+const DeckDrawer = require("../shared/deck-drawer");
 
 let tournamentDeck = null;
 let currentDeck = null;
@@ -748,12 +748,13 @@ function drawSideboardDeck(div) {
   currentDeck.mainDeck.forEach(function(card) {
     size += card.quantity;
   });
-  addCardSeparator(`Mainboard (${size})`, mainboardDiv);
+  let mainboardDraw = new DeckDrawer(mainboardDiv);
+  mainboardDraw.separator(`Mainboard (${size})`);
   currentDeck.mainDeck.forEach(function(card) {
     let grpId = card.id;
 
     if (card.quantity > 0) {
-      let tile = addCardTile(grpId, unique + "a", card.quantity, mainboardDiv);
+      let tile = mainboardDraw.card(grpId, unique + "a", card.quantity);
     }
   });
 
@@ -765,17 +766,13 @@ function drawSideboardDeck(div) {
       currentDeck.sideboard.forEach(function(card) {
         size += card.quantity;
       });
-      addCardSeparator(`Sideboard (${size})`, sideboardDiv);
+      let sideboardDraw = new DeckDrawer();
+      sideboardDraw.separator(`Sideboard (${size})`);
 
       currentDeck.sideboard.forEach(function(card) {
         let grpId = card.id;
         if (card.quantity > 0) {
-          let tile = addCardTile(
-            grpId,
-            unique + "b",
-            card.quantity,
-            sideboardDiv
-          );
+          let tile = sideboardDraw.card(grpId, unique + "b", card.quantity);
         }
       });
     }

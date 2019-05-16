@@ -3,7 +3,6 @@
 globals
   cardsDb,
   makeId,
-  addCardTile,
   compare_cards,
   getWildcardsMissing,
   setsList,
