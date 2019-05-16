@@ -3,8 +3,6 @@
 globals
   cardsDb,
   makeId,
-  get_card_type_sort,
-  addCardSeparator,
   addCardTile,
   compare_cards,
   getWildcardsMissing,
@@ -133,75 +131,6 @@ class Deck {
     }
 
     return missing;
-  }
-
-  /**
-   * Draws this deck on the specified DOM object
-   **/
-  draw(div) {
-    var unique = makeId(4);
-    div.html("");
-    var prevIndex = 0;
-
-    let mainBoard = this.mainboard;
-    mainBoard.get().forEach(function(card) {
-      let grpId = card.id;
-      let type = cardsDb.get(grpId).type;
-      let cardTypeSort = get_card_type_sort(type);
-      if (prevIndex == 0) {
-        let q = mainBoard.countType(type);
-        addCardSeparator(cardTypeSort, div, q);
-      } else if (prevIndex != 0) {
-        if (cardTypeSort != get_card_type_sort(cardsDb.get(prevIndex).type)) {
-          let q = mainBoard.countType(type);
-          addCardSeparator(cardTypeSort, div, q);
-        }
-      }
-
-      if (card.quantity > 0) {
-        addCardTile(grpId, unique + "a", card.quantity, div);
-      }
-
-      prevIndex = grpId;
-    });
-
-    let sideBoard = this.sideboard;
-    if (sideBoard._list.length > 0) {
-      addCardSeparator(99, div, sideBoard.count());
-      prevIndex = 0;
-      sideBoard.get().forEach(card => {
-        var grpId = card.id;
-        if (card.quantity > 0) {
-          addCardTile(grpId, unique + "b", card.quantity, div);
-        }
-      });
-    }
-  }
-
-  /**
-   * Returns a txt format string of this deck.
-   **/
-  getExportTxt() {
-    let str = "";
-    let mainList = this.mainboard.removeDuplicates(false);
-    mainList.forEach(function(card) {
-      let grpid = card.id;
-      let card_name = cardsDb.get(grpid).name;
-
-      str += (card.measurable ? card.quantity : 1) + " " + card_name + "\r\n";
-    });
-
-    str += "\r\n";
-
-    let sideList = this.sideboard.removeDuplicates(false);
-    sideList.forEach(function(card) {
-      let grpid = card.id;
-      let card_name = cardsDb.get(grpid).name;
-
-      str += (card.measurable ? card.quantity : 1) + " " + card_name + "\r\n";
-    });
-
-    return str;
   }
 
   getExportArena() {
