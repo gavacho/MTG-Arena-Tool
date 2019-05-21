@@ -1,4 +1,6 @@
 "use strict";
+
+const _ = require("lodash");
 const db = require("./database.js");
 const Colors = require("./colors.js");
 
@@ -98,14 +100,16 @@ class CardsList {
    * for the given propierty.
    **/
   count(prop = "quantity") {
-    return this._list.sum(prop);
+    return _.sumBy(this._list, prop);
   }
 
   /**
    * Same as count(), but here we can apply a filter function to the list.
    **/
   countFilter(prop = "quantity", func) {
-    return this._list.filter(func).sum(prop);
+    return _(this._list)
+      .filter(func)
+      .sumBy(prop);
   }
 
   /**
