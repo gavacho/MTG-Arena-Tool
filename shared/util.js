@@ -822,13 +822,6 @@ function replaceAll(str, find, replace) {
 }
 
 //
-function stripTags(html) {
-  var tmp = document.createElement("DIV");
-  tmp.innerHTML = html;
-  return tmp.textContent || tmp.innerText || "";
-}
-
-//
 function urlDecode(url) {
   return decodeURIComponent(url.replace(/\+/g, " "));
 }
