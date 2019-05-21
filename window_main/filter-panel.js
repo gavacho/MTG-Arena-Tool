@@ -3,13 +3,15 @@
 globals
   Aggregator,
   createDivision,
-  createSelect,
   doesDeckStillExist,
   getReadableEvent,
   getReadableFormat,
   getRecentDeckName,
   getTagColor
 */
+
+const { createSelect } = require("../shared/select");
+
 const { COLORS_ALL, COLORS_BRIEF } = require("../shared/constants.js");
 
 const {

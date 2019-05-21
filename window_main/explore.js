@@ -3,7 +3,6 @@ globals
   activeEvents,
   db,
   getReadableEvent,
-  createSelect,
   timeSince,
   ipc_send,
   showLoadingBars,
@@ -21,6 +20,7 @@ globals
 const { MANA, COLORS_BRIEF, DEFAULT_TILE } = require("../shared/constants.js");
 
 const _ = require("lodash");
+const { createSelect } = require("../shared/select");
 
 let filterWCC = 0;
 let filterWCU = 0;

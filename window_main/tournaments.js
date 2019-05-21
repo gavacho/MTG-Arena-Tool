@@ -3,7 +3,6 @@ global
   $$,
   change_background,
   createDivision,
-  createSelect,
   compare_cards,
   cardStyle,
   decks,
@@ -21,6 +20,7 @@ global
   userName,
 */
 
+const { createSelect } = require("../shared/select");
 const deckDrawer = require("../shared/deck-drawer");
 
 let tournamentDeck = null;

@@ -7,7 +7,6 @@ global
   collectionSortRarity,
   change_background,
   createDivision,
-  createSelect,
   db,
   decks,
   get_card_image,
@@ -23,9 +22,11 @@ global
   shell
 */
 
+const { createSelect } = require("../shared/select");
 const { addCardHover } = require("../shared/card-hover");
 
 const { COLORS_BRIEF, CARD_RARITIES } = require("../shared/constants.js");
+
 let collectionPage = 0;
 let sortingAlgorithm = "Sort by Set";
 let filteredSets;

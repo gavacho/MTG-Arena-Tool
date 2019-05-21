@@ -23,7 +23,6 @@ globals
   open_draft,
   ListItem,
   playerData,
-  selectAdd,
   setTagColor,
   showLoadingBars,
   sidebarActive,
@@ -34,6 +33,9 @@ globals
   toMMSS,
   $$
 */
+
+const { selectAdd } = require("../shared/select");
+
 const { MANA, RANKS } = require("../shared/constants.js");
 
 const { DEFAULT_DECK, RANKED_CONST, RANKED_DRAFT, DATE_SEASON } = Aggregator;

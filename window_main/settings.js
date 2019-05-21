@@ -5,7 +5,6 @@ global
   cardStyle,
   cardSize,
   change_background,
-  createSelect,
   db,
   get_card_image,
   hideLoadingBars,
@@ -15,6 +14,8 @@ global
 */
 
 const electron = require("electron");
+const { createSelect } = require("../shared/select");
+
 const remote = electron.remote;
 const ipc = electron.ipcRenderer;
 const shell = electron.shell;

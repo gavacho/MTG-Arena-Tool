@@ -3,7 +3,6 @@ global
   $,
   collectionSortRarity,
   createDivision
-  createSelect,
   db,
   DataScroller,
   economyHistory,
@@ -16,6 +15,7 @@ global
   shell
 */
 
+const { createSelect } = require("../shared/select");
 const { addCardHover } = require("../shared/card-hover");
 
 var filterEconomy = "All";
