@@ -4,7 +4,6 @@ global
   db,
   get_rank_index,
   playerDataDefault,
-  hypergeometricRange,
   objectClone,
 */
 const {
@@ -48,6 +47,7 @@ const {
 
 const _ = require("lodash");
 
+const { hypergeometricRange } = require("../shared/stats-fns");
 const httpApi = require("./http-api");
 const manifestParser = require("./manifest-parser");
 const greToClientInterpreter = require("./gre-to-client-interpreter");

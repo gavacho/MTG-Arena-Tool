@@ -10,8 +10,6 @@ global
   get_deck_export_txt,
   get_deck_types_ammount,
   get_rank_index,
-  hypergeometricSignificance,
-  hypergeometricRange,
   makeId,
   playerDataDefault,
   removeDuplicates,
@@ -79,8 +77,11 @@ const expandEvent = require("./events").expandEvent;
 const openSettingsTab = require("./settings").openSettingsTab;
 const deckDrawer = require("../shared/deck-drawer");
 const cardTypes = require("../shared/card-types");
-
 const openEconomyTab = require("./economy").openEconomyTab;
+const {
+  hypergeometricSignificance,
+  hypergeometricRange
+} = require("../shared/stats-fns");
 
 const { RANKED_CONST, RANKED_DRAFT, DATE_SEASON } = Aggregator;
 
