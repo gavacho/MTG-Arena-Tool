@@ -1,7 +1,6 @@
 /*
 global
   $$,
-  addCardHover,
   authToken,
   db,
   discordTag,
@@ -18,6 +17,8 @@ global
   timestamp,
   createDivision
 */
+
+const { addCardHover } = require("../shared/card-hover");
 
 let usersActive;
 let tournaments_list;

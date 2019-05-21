@@ -1,7 +1,6 @@
 /*
 global
   $,
-  addCardHover,
   collectionSortRarity,
   createDivision
   createSelect,
@@ -16,6 +15,8 @@ global
   ipc_send,
   shell
 */
+
+const { addCardHover } = require("../shared/card-hover");
 
 var filterEconomy = "All";
 let showArchived = false;

@@ -1,7 +1,6 @@
 /*
 global
   $$,
-  addCardHover,
   compare_cards,
   db,
   get_card_type_sort,
@@ -60,6 +59,7 @@ const striptags = require("striptags");
 window.$ = window.jQuery = require("jquery");
 const Deck = require("../shared/deck.js");
 const Colors = require("../shared/colors");
+const { setRenderer, addCardHover } = require("../shared/card-hover");
 
 let matchBeginTime = Date.now();
 let priorityTimers = [];
@@ -67,7 +67,7 @@ let clockMode = 0;
 let draftMode = 1;
 let deckMode = 0;
 let overlayMode = 0;
-var renderer = 1;
+setRenderer(1);
 
 //var turnPhase = 0;
 //var turnStep = 0;

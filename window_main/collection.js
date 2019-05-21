@@ -1,7 +1,6 @@
 /*
 global
   $$,
-  addCardHover,
   cards,
   cardsNew,
   cardSize,
@@ -23,6 +22,9 @@ global
   MenuItem,
   shell
 */
+
+const { addCardHover } = require("../shared/card-hover");
+
 const { COLORS_BRIEF, CARD_RARITIES } = require("../shared/constants.js");
 let collectionPage = 0;
 let sortingAlgorithm = "Sort by Set";

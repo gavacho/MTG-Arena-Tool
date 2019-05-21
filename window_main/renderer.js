@@ -1,6 +1,5 @@
 /*
 global
-  addCardHover,
   compare_archetypes,
   compare_cards,
   db,
@@ -78,6 +77,7 @@ const openSettingsTab = require("./settings").openSettingsTab;
 const deckDrawer = require("../shared/deck-drawer");
 const cardTypes = require("../shared/card-types");
 const openEconomyTab = require("./economy").openEconomyTab;
+const { addCardHover } = require("../shared/card-hover");
 const {
   hypergeometricSignificance,
   hypergeometricRange
