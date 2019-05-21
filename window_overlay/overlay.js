@@ -1,6 +1,5 @@
 /*
 global
-  $$,
   compare_cards,
   db,
   get_card_type_sort,
@@ -60,6 +59,7 @@ window.$ = window.jQuery = require("jquery");
 const Deck = require("../shared/deck.js");
 const Colors = require("../shared/colors");
 const { setRenderer, addCardHover } = require("../shared/card-hover");
+const { queryElements: $$ } = require("../shared/dom-fns");
 
 let matchBeginTime = Date.now();
 let priorityTimers = [];

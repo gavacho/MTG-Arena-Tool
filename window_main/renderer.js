@@ -14,7 +14,6 @@ global
   removeDuplicates,
   set_tou_state,
   timeSince,
-  $$
 */
 const {
   DRAFT_RANKS,
@@ -77,6 +76,7 @@ const openSettingsTab = require("./settings").openSettingsTab;
 const deckDrawer = require("../shared/deck-drawer");
 const cardTypes = require("../shared/card-types");
 const openEconomyTab = require("./economy").openEconomyTab;
+const { queryElements: $$ } = require("../shared/dom-fns");
 const { addCardHover } = require("../shared/card-hover");
 const {
   hypergeometricSignificance,

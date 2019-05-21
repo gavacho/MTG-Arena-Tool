@@ -1,12 +1,12 @@
 /*
 global
-  createDivision,
   shell,
   get_wc_missing,
   get_set_scryfall,
 */
 const db = require("./database.js");
 const _ = require("lodash");
+const { createDivision } = require("../shared/dom-fns");
 const { addCardHover } = require("../shared/card-hover");
 
 const { CARD_TILE_FLAT } = require("./constants.js");

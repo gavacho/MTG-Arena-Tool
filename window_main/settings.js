@@ -10,7 +10,6 @@ global
   hideLoadingBars,
   ipc_send,
   offlineMode,
-  $$
 */
 
 const electron = require("electron");

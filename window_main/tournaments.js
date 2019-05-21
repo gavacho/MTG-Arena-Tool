@@ -1,8 +1,6 @@
 /*
 global
-  $$,
   change_background,
-  createDivision,
   compare_cards,
   cardStyle,
   decks,
@@ -20,6 +18,7 @@ global
   userName,
 */
 
+const { queryElements: $$, createDivision } = require("../shared/dom-fns");
 const { createSelect } = require("../shared/select");
 const deckDrawer = require("../shared/deck-drawer");
 

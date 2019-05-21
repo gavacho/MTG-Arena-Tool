@@ -2,7 +2,6 @@
 /*
 globals
   compare_winrates,
-  createDivision,
   formatPercent,
   get_rank_index,
   getTagColor,
@@ -10,6 +9,8 @@ globals
   toDDHHMMSS,
   toMMSS
 */
+
+const { createDivision } = require("../shared/dom-fns");
 const { MANA, RANKS } = require("../shared/constants.js");
 
 class StatsPanel {

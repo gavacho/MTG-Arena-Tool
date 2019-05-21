@@ -1,11 +1,9 @@
 /*
 globals
-  $$,
   Aggregator,
   allMatches
   compare_cards,
   compare_courses,
-  createDivision,
   DataScroller,
   eventsHistory,
   FilterPanel,
@@ -18,11 +16,13 @@ globals
   ListItem,
   open_match,
   playerData,
-  queryElementsByClass,
   StatsPanel,
   timeSince,
   toMMSS
 */
+
+const { createDivision, queryElementsByClass } = require("../shared/dom-fns");
+
 const { MANA } = require("../shared/constants.js");
 
 let filters = Aggregator.getDefaultFilters();

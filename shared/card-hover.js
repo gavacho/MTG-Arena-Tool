@@ -1,13 +1,12 @@
 /*
 global
-  $$
   cards
   cardsNew
-  createDivision
   get_card_image
 */
 
 const db = require("../shared/database");
+const { createDivision, queryElements: $$ } = require("../shared/dom-fns");
 
 let renderer = 0;
 

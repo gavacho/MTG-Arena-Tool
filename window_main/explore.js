@@ -11,15 +11,14 @@ globals
   getWinrateClass,
   get_rank_index_16,
   hideLoadingBars,
-  createDivision,
   removeDuplicates,
   compare_cards,
   getBoosterCountEstimate,
-  $$
 */
 const { MANA, COLORS_BRIEF, DEFAULT_TILE } = require("../shared/constants.js");
 
 const _ = require("lodash");
+const { queryElements: $$, createDivision } = require("../shared/dom-fns");
 const { createSelect } = require("../shared/select");
 
 let filterWCC = 0;

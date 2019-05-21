@@ -3,7 +3,6 @@ globals
   Aggregator,
   allMatches,
   compare_cards,
-  createDivision,
   currentId,
   db,
   DataScroller,
@@ -31,10 +30,10 @@ globals
   StatsPanel,
   timeSince,
   toMMSS,
-  $$
 */
 
 const { selectAdd } = require("../shared/select");
+const { createDivision } = require("../shared/dom-fns");
 
 const { MANA, RANKS } = require("../shared/constants.js");
 

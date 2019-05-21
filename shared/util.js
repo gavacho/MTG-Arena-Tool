@@ -46,24 +46,6 @@ var playerDataDefault = {
   }
 };
 
-// Mostly an alias to document.querySelectorAll but
-// allows second argument to specify an alternative parent
-// Also returns an array.
-// Usage:
-// queryElements(".classname").forEach(el => do_something(el))
-// queryElements("#elementId")
-// queryElements("#elementId", otherElement)
-function queryElements(selectors, parentNode = document) {
-  return [...parentNode.querySelectorAll(selectors)];
-}
-
-function queryElementsByClass(selectors, parentNode = document) {
-  return [...parentNode.getElementsByClassName(selectors)];
-}
-
-// useful alias
-const $$ = (window.$$ = queryElements);
-
 //
 function get_card_image(cardObj) {
   if (typeof cardObj !== "object") {
@@ -684,20 +666,6 @@ function toHHMM(sec_num) {
 //
 function add(a, b) {
   return a + b;
-}
-
-//
-function createDivision(classNames, innerHTML) {
-  // Utility function. Create a <div> element with specified class names and content
-  let div = document.createElement("div");
-
-  if (classNames !== undefined) {
-    classNames.forEach(className => div.classList.add(className));
-  }
-  if (innerHTML !== undefined) {
-    div.innerHTML = innerHTML;
-  }
-  return div;
 }
 
 //

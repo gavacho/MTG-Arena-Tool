@@ -2,7 +2,6 @@
 global
   Aggregator,
   allMatches,
-  createDivision,
   decks,
   economyHistory,
   FilterPanel,
@@ -26,6 +25,8 @@ global
 */
 
 const _ = require("lodash");
+const { createDivision } = require("../shared/dom-fns");
+
 const { MANA, CARD_RARITIES } = require("../shared/constants.js");
 
 let filters = Aggregator.getDefaultFilters();

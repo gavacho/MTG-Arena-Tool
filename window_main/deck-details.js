@@ -3,7 +3,6 @@ global
     add,
     Aggregator,
     change_background,
-    createDivision,
     db,
     drawDeck,
     drawDeckVisual,
@@ -20,6 +19,7 @@ global
     StatsPanel
 */
 
+const { createDivision } = require("../shared/dom-fns");
 const ConicGradient = require("../shared/conic-gradient");
 
 const {

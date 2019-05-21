@@ -2,7 +2,6 @@
 /*
 globals
   Aggregator,
-  createDivision,
   doesDeckStillExist,
   getReadableEvent,
   getReadableFormat,
@@ -10,6 +9,7 @@ globals
   getTagColor
 */
 
+const { createDivision } = require("../shared/dom-fns");
 const { createSelect } = require("../shared/select");
 
 const { COLORS_ALL, COLORS_BRIEF } = require("../shared/constants.js");

@@ -1,12 +1,10 @@
 /*
 global
-  $$,
   cards,
   cardsNew,
   cardSize,
   collectionSortRarity,
   change_background,
-  createDivision,
   db,
   decks,
   get_card_image,
@@ -22,6 +20,7 @@ global
   shell
 */
 
+const { queryElements: $$, createDivision } = require("../shared/dom-fns");
 const { createSelect } = require("../shared/select");
 const { addCardHover } = require("../shared/card-hover");
 

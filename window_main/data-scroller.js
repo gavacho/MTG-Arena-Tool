@@ -1,11 +1,12 @@
 "use strict";
 /*
 globals
-  createDivision,
   hideLoadingBars,
   showLoadingBars
   $
 */
+
+const { createDivision } = require("../shared/dom-fns");
 
 class DataScroller {
   constructor(container, renderData, loadAmount, maxDataIndex) {

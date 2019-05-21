@@ -1,6 +1,5 @@
 /*
 global
-  $$,
   authToken,
   db,
   discordTag,
@@ -15,9 +14,9 @@ global
   toDDHHMMSS,
   tournamentCreate,
   timestamp,
-  createDivision
 */
 
+const { queryElements: $$, createDivision } = require("../shared/dom-fns");
 const { addCardHover } = require("../shared/card-hover");
 
 let usersActive;

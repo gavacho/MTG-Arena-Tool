@@ -2,7 +2,6 @@
 global
   $,
   collectionSortRarity,
-  createDivision
   db,
   DataScroller,
   economyHistory,
@@ -15,6 +14,7 @@ global
   shell
 */
 
+const { createDivision } = require("../shared/dom-fns");
 const { createSelect } = require("../shared/select");
 const { addCardHover } = require("../shared/card-hover");
 

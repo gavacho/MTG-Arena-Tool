@@ -1,11 +1,7 @@
 "use strict";
-/*
-globals
-  $$,
-  createDivision
-*/
 const { DEFAULT_TILE } = require("../shared/constants.js");
 const db = require("../shared/database.js");
+const { createDivision } = require("../shared/dom-fns");
 
 class ListItem {
   constructor(_grpId, _id, _onClick, _onDelete = false, isArchived = false) {

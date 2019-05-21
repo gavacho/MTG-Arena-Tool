@@ -1,7 +1,4 @@
-/*
-global
-  createDivision
-*/
+const { createDivision, queryElements: $$ } = require("../shared/dom-fns");
 
 /**
  * Creates a select box
