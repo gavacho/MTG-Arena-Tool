@@ -530,22 +530,6 @@ function get_deck_export_txt(deck) {
 }
 
 //
-function convert_deck_from_v3(deck) {
-  return JSON.parse(JSON.stringify(deck), (key, value) => {
-    if (key === "mainDeck" || key === "sideboard") {
-      let ret = [];
-      for (let i = 0; i < value.length; i += 2) {
-        if (value[i + 1] > 0) {
-          ret.push({ id: value[i], quantity: value[i + 1] });
-        }
-      }
-      return ret;
-    }
-    return value;
-  });
-}
-
-//
 function timeSince(_date) {
   var seconds = Math.floor((new Date() - _date) / 1000);
 
