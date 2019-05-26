@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+const CardsList = require("../shared/cards-list");
+
 function onLabelOutLogInfo(entry, json) {
   if (!json) return;
   logTime = parseWotcTime(entry.timestamp);

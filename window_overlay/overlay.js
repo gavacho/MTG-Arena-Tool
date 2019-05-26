@@ -3,7 +3,6 @@ global
   $$,
   addCardHover,
   compare_cards,
-  CardsList,
   Colors,
   db,
   get_card_type_sort,
