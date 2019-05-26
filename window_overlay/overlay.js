@@ -6,7 +6,6 @@ global
   CardsList,
   Colors,
   db,
-  Deck,
   get_card_type_sort,
   $
 */
@@ -61,6 +60,7 @@ const fs = require("fs");
 const ipc = electron.ipcRenderer;
 const striptags = require("striptags");
 window.$ = window.jQuery = require("jquery");
+const Deck = require("../shared/deck.js");
 
 let matchBeginTime = Date.now();
 let priorityTimers = [];

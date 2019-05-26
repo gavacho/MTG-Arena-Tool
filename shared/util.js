@@ -19,7 +19,6 @@ const {
 
 const db = require("../shared/database.js");
 
-const Deck = require("../shared/deck.js");
 const CardsList = require("../shared/cards-list.js");
 const Colors = require("../shared/colors.js");
 

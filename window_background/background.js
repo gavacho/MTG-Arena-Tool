@@ -2,7 +2,6 @@
 global
   compare_archetypes,
   db,
-  Deck,
   get_rank_index,
   playerDataDefault,
   hypergeometricRange,
@@ -52,6 +51,7 @@ const _ = require("lodash");
 const httpApi = require("./http-api");
 const manifestParser = require("./manifest-parser");
 const greToClientInterpreter = require("./gre-to-client-interpreter");
+const Deck = require("../shared/deck.js");
 const {
   onLabelOutLogInfo,
   onLabelGreToClient,
