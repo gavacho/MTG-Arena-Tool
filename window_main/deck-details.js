@@ -2,7 +2,6 @@
 global
     add,
     Aggregator,
-    ConicGradient,
     change_background,
     createDivision,
     db,
@@ -20,6 +19,9 @@ global
     sidebarSize,
     StatsPanel
 */
+
+const ConicGradient = require("../shared/conic-gradient");
+
 const {
   MANA,
   CARD_RARITIES,

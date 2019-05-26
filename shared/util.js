@@ -8,8 +8,6 @@ global
 const math = require("mathjs");
 math.config({ precision: 2000 });
 
-require("conic-gradient");
-
 const {
   FORMATS,
   BLACK,
