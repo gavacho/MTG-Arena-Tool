@@ -1,4 +1,3 @@
-"use strict";
 /*
 global
   compare_winrates

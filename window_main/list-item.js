@@ -1,4 +1,3 @@
-"use strict";
 const { DEFAULT_TILE } = require("../shared/constants.js");
 const db = require("../shared/database.js");
 const { createDivision } = require("../shared/dom-fns");

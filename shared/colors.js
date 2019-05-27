@@ -1,4 +1,3 @@
-"use strict";
 const { WHITE, BLUE, BLACK, RED, GREEN } = require("../shared/constants.js");
 
 class Colors {

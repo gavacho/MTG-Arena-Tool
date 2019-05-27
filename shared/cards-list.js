@@ -1,5 +1,3 @@
-"use strict";
-
 const _ = require("lodash");
 const db = require("./database.js");
 const Colors = require("./colors.js");

@@ -1,5 +1,3 @@
-"use strict";
-
 const db = require("./database.js");
 const CardsList = require("./cards-list.js");
 const Colors = require("./colors.js");
