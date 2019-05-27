@@ -1,6 +1,69 @@
-/* eslint-disable */
+/*
+  global
+    logTime
+    actionLog
+    skipMatch
+    currentMatch
+    getNameBySeat
+    logLanguage
+    playerData
+    gameNumberCompleted
+    initialLibraryInstanceIds
+    instanceToCardIdMap
+    idChanges
+    matchGameStats
+    saveMatch
+    greToClientInterpreter
+    decodePayload
+    updateRank
+    ipc_send
+    staticDecks
+    decks_tags
+    decks
+    updateCustomDecks
+    requestHistorySend
+    addCustomDeck
+    saveCourse
+    select_deck
+    sha1
+    deck_changes_index
+    deck_changes
+    store
+    saveEconomyTransaction
+    gold
+    gems
+    vault
+    wcTrack
+    wcCommon
+    wcUncommon
+    wcRare
+    wcMythic
+    sendEconomy
+    matchBeginTime
+    createMatch
+    draftSet
+    currentDraft
+    createDraft
+    setDraftCards
+    clear_deck
+    saveDraft
+    duringMatch
+    playerWin
+    draws
+    oppWin
+    matchCompletedOnGameNumber
+    oppId
+*/
 
+const db = require("../shared/database");
 const CardsList = require("../shared/cards-list");
+const { get_deck_colors, objectClone, replaceAll } = require("../shared/util");
+const {
+  httpSetMythicRank,
+  httpSubmitCourse,
+  httpTournamentCheck
+} = require("./http-api");
+const { parseWotcTime, normaliseFields } = require("./background-util");
 
 //
 function convert_deck_from_v3(deck) {
@@ -320,7 +383,7 @@ function onLabelInEventGetPlayerCourse(entry, json) {
       addCustomDeck(json.CourseDeck);
       //json.date = timestamp();
       //console.log(json.CourseDeck, json.CourseDeck.colors)
-      httpApi.httpSubmitCourse(json);
+      httpSubmitCourse(json);
       saveCourse(json);
     }
     select_deck(json);
@@ -537,7 +600,7 @@ function onLabelEventMatchCreated(entry, json) {
   matchBeginTime = parseWotcTime(entry.timestamp);
 
   if (json.opponentRankingClass == "Mythic") {
-    httpApi.httpSetMythicRank(
+    httpSetMythicRank(
       json.opponentScreenName,
       json.opponentMythicLeaderboardPlace
     );
@@ -558,7 +621,7 @@ function onLabelOutDirectGameChallenge(entry, json) {
   deck = JSON.parse(deck);
   select_deck(deck);
 
-  httpApi.httpTournamentCheck(
+  httpTournamentCheck(
     deck,
     json.params.opponentDisplayName,
     false,

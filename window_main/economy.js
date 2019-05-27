@@ -1,22 +1,24 @@
 /*
 global
-  $,
-  collectionSortRarity,
-  db,
-  DataScroller,
-  economyHistory,
-  formatNumber,
-  formatPercent,
-  get_card_image,
-  get_set_scryfall,
-  getReadableEvent,
-  ipc_send,
-  shell
+  $
+  DataScroller
+  economyHistory
+  formatNumber
+  formatPercent
+  ipc_send
 */
 
+const { shell } = require("electron");
+const db = require("../shared/database");
 const { createDivision } = require("../shared/dom-fns");
 const { createSelect } = require("../shared/select");
 const { addCardHover } = require("../shared/card-hover");
+const {
+  collectionSortRarity,
+  get_card_image,
+  get_set_scryfall,
+  getReadableEvent
+} = require("../shared/util");
 
 var filterEconomy = "All";
 let showArchived = false;

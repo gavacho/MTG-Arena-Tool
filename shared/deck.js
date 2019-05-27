@@ -1,15 +1,16 @@
 "use strict";
-/*
-globals
+
+const db = require("./database.js");
+const CardsList = require("./cards-list.js");
+const Colors = require("./colors.js");
+const {
   compare_cards,
   get_set_code,
   getWildcardsMissing,
   objectClone
-*/
-const db = require("./database.js");
+} = require("../shared/util");
+
 const { DEFAULT_TILE } = require("../shared/constants.js");
-const CardsList = require("./cards-list.js");
-const Colors = require("./colors.js");
 
 class Deck {
   constructor(mtgaDeck = {}, main = false, side = false) {

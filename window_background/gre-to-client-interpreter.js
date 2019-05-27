@@ -1,22 +1,21 @@
 /*
-globals
-  actionLog,
-  actionLogGenerateAbilityLink,
-  actionLogGenerateLink,
-  currentDeck,
-  currentMatch,
-  cloneDeep,
-  changePriority,
-  firstPass,
-  forceDeckUpdate,
-  gameStage,
-  getNameBySeat,
-  idChanges,
-  initialLibraryInstanceIds,
-  instanceToCardIdMap,
-  ipc,
+global
+  actionLog
+  actionLogGenerateAbilityLink
+  actionLogGenerateLink
+  currentDeck
+  currentMatch
+  changePriority
+  firstPass
+  forceDeckUpdate
+  getNameBySeat
+  idChanges
+  initialLibraryInstanceIds
+  instanceToCardIdMap
   update_deck
 */
+
+const { ipcRenderer: ipc } = require("electron");
 
 let actionType = [];
 actionType[0] = "ActionType_None";

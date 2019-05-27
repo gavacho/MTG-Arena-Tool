@@ -1,5 +1,5 @@
 /*
-globals
+global
   skipFirstPass
 */
 const fs = require("fs");

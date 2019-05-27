@@ -1,25 +1,28 @@
 /*
-globals
-  activeEvents,
-  db,
-  getReadableEvent,
-  timeSince,
-  ipc_send,
-  showLoadingBars,
-  add_checkbox,
-  economyHistory,
-  getWinrateClass,
-  get_rank_index_16,
-  hideLoadingBars,
-  removeDuplicates,
-  compare_cards,
-  getBoosterCountEstimate,
+global
+  activeEvents
+  add_checkbox
+  economyHistory
+  getWinrateClass
+  hideLoadingBars
+  ipc_send
+  showLoadingBars
 */
-const { MANA, COLORS_BRIEF, DEFAULT_TILE } = require("../shared/constants.js");
 
 const _ = require("lodash");
+const db = require("../shared/database");
 const { queryElements: $$, createDivision } = require("../shared/dom-fns");
 const { createSelect } = require("../shared/select");
+const {
+  getReadableEvent,
+  timeSince,
+  get_rank_index_16,
+  removeDuplicates,
+  compare_cards,
+  getBoosterCountEstimate
+} = require("../shared/util");
+
+const { MANA, COLORS_BRIEF, DEFAULT_TILE } = require("../shared/constants.js");
 
 let filterWCC = 0;
 let filterWCU = 0;

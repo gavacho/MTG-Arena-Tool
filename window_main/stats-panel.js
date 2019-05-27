@@ -1,16 +1,15 @@
 "use strict";
 /*
-globals
-  compare_winrates,
-  formatPercent,
-  get_rank_index,
-  getTagColor,
-  getWinrateClass,
-  toDDHHMMSS,
-  toMMSS
+global
+  compare_winrates
+  formatPercent
+  getTagColor
+  getWinrateClass
 */
 
 const { createDivision } = require("../shared/dom-fns");
+const { get_rank_index, toDDHHMMSS, toMMSS } = require("../shared/util");
+
 const { MANA, RANKS } = require("../shared/constants.js");
 
 class StatsPanel {

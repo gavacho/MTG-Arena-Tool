@@ -1,23 +1,23 @@
 /*
 global
-  add_checkbox,
-  cardQuality,
-  cardStyle,
-  cardSize,
-  change_background,
-  db,
-  get_card_image,
-  hideLoadingBars,
-  ipc_send,
-  offlineMode,
+  add_checkbox
+  cardQuality
+  cardStyle
+  cardSize
+  change_background
+  hideLoadingBars
+  ipc_send
+  offlineMode
 */
 
-const electron = require("electron");
-const { createSelect } = require("../shared/select");
+const { ipcRenderer: ipc, remote, shell } = require("electron");
 
-const remote = electron.remote;
-const ipc = electron.ipcRenderer;
-const shell = electron.shell;
+const db = require("../shared/database");
+const deckDrawer = require("../shared/deck-drawer");
+const { createSelect } = require("../shared/select");
+const { get_card_image } = require("../shared/util");
+
+const { CARD_TILE_ARENA, CARD_TILE_FLAT } = require("../shared/constants.js");
 
 let lastSettingsSection = 1;
 let overlayAlpha = 1;
@@ -26,10 +26,6 @@ let overlayScale = 1;
 let cardSizePos = 4;
 let settings = null;
 let updateState = "";
-
-const deckDrawer = require("../shared/deck-drawer");
-
-const { CARD_TILE_ARENA, CARD_TILE_FLAT } = require("../shared/constants.js");
 
 function getCardStyleName(style) {
   if (style == CARD_TILE_FLAT) return "Flat";

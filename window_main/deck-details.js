@@ -1,26 +1,28 @@
 /*
 global
-    add,
-    Aggregator,
-    change_background,
-    db,
-    drawDeck,
-    drawDeckVisual,
-    economyHistory,
-    get_deck_export,
-    get_deck_export_txt,
-    get_deck_missing,
-    get_deck_types_ammount,
-    getBoosterCountEstimate,
-    ipc_send,
-    makeResizable,
-    pop,
-    sidebarSize,
+    Aggregator
+    change_background
+    drawDeck
+    drawDeckVisual
+    economyHistory
+    ipc_send
+    makeResizable
+    pop
+    sidebarSize
     StatsPanel
 */
 
-const { createDivision } = require("../shared/dom-fns");
+const db = require("../shared/database");
 const ConicGradient = require("../shared/conic-gradient");
+const { createDivision } = require("../shared/dom-fns");
+const {
+  add,
+  get_deck_export,
+  get_deck_export_txt,
+  get_deck_missing,
+  get_deck_types_ammount,
+  getBoosterCountEstimate
+} = require("../shared/util");
 
 const {
   MANA,

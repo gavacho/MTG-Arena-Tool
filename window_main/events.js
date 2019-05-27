@@ -1,27 +1,29 @@
 /*
-globals
-  Aggregator,
+global
+  Aggregator
   allMatches
-  compare_cards,
-  compare_courses,
-  DataScroller,
-  eventsHistory,
-  FilterPanel,
-  get_deck_colors,
-  get_rank_index_16,
-  getEventWinLossClass,
-  getReadableEvent,
-  ipc_send,
-  matchesHistory,
-  ListItem,
-  open_match,
-  playerData,
-  StatsPanel,
-  timeSince,
-  toMMSS
+  compare_courses
+  DataScroller
+  eventsHistory
+  FilterPanel
+  getEventWinLossClass
+  ipc_send
+  matchesHistory
+  ListItem
+  open_match
+  playerData
+  StatsPanel
 */
 
 const { createDivision, queryElementsByClass } = require("../shared/dom-fns");
+const {
+  compare_cards,
+  get_deck_colors,
+  get_rank_index_16,
+  getReadableEvent,
+  timeSince,
+  toMMSS
+} = require("../shared/util");
 
 const { MANA } = require("../shared/constants.js");
 

@@ -5,6 +5,8 @@ global
   decks
 */
 
+const db = require("../shared/database.js");
+
 const {
   FORMATS,
   BLACK,
@@ -14,8 +16,8 @@ const {
   WHITE
 } = require("../shared/constants.js");
 
-const db = require("../shared/database.js");
-
+//
+exports.playerDataDefault = playerDataDefault;
 function playerDataDefault() {
   return {
     name: null,
@@ -49,6 +51,7 @@ function playerDataDefault() {
 }
 
 //
+exports.get_card_image = get_card_image;
 function get_card_image(cardObj) {
   if (typeof cardObj !== "object") {
     cardObj = db.card(cardObj);
@@ -62,6 +65,7 @@ function get_card_image(cardObj) {
 }
 
 //
+exports.get_rank_index = get_rank_index;
 function get_rank_index(_rank, _tier) {
   var ii = 0;
   if (_rank == "Unranked") ii = 0;
@@ -75,6 +79,7 @@ function get_rank_index(_rank, _tier) {
 }
 
 //
+exports.get_rank_index_16 = get_rank_index_16;
 function get_rank_index_16(_rank) {
   var ii = 0;
   if (_rank == "Unranked") ii = 0;
@@ -87,16 +92,21 @@ function get_rank_index_16(_rank) {
   return ii;
 }
 
+//
+exports.getDeck = getDeck;
 function getDeck(deckId) {
   const matches = decks.filter(deck => deck.id === deckId);
   if (!matches.length) return null;
   return matches[0];
 }
 
+//
+exports.doesDeckStillExist = doesDeckStillExist;
 function doesDeckStillExist(deckId) {
   return decks.filter(deck => deck.id === deckId).length > 0;
 }
 
+exports.getRecentDeckName = getRecentDeckName;
 function getRecentDeckName(deckId) {
   if (doesDeckStillExist(deckId)) {
     return getDeck(deckId).name;
@@ -105,6 +115,7 @@ function getRecentDeckName(deckId) {
 }
 
 //
+exports.getReadableEvent = getReadableEvent;
 function getReadableEvent(arg) {
   if (db.events[arg] != undefined) {
     return db.events[arg];
@@ -114,6 +125,7 @@ function getReadableEvent(arg) {
 }
 
 //
+exports.getReadableFormat = getReadableFormat;
 function getReadableFormat(format) {
   if (format in FORMATS) {
     return FORMATS[format];
@@ -122,6 +134,7 @@ function getReadableFormat(format) {
 }
 
 //
+exports.removeDuplicates = removeDuplicates;
 function removeDuplicates(decklist) {
   var newList = [];
   try {
@@ -152,6 +165,7 @@ function removeDuplicates(decklist) {
 }
 
 //
+exports.get_card_type_sort = get_card_type_sort;
 function get_card_type_sort(a) {
   if (a == undefined) return 0;
   if (a.includes("Creature", 0)) return 1;
@@ -166,6 +180,7 @@ function get_card_type_sort(a) {
 }
 
 //
+exports.compare_cards = compare_cards;
 function compare_cards(a, b) {
   // Yeah this is lazy.. I know
   a = db.card(a.id);
@@ -205,6 +220,7 @@ function compare_cards(a, b) {
 }
 
 //
+exports.compare_archetypes = compare_archetypes;
 function compare_archetypes(a, b) {
   if (a.average > b.average) return -1;
   if (a.average < b.average) return 1;
@@ -212,6 +228,7 @@ function compare_archetypes(a, b) {
 }
 
 //
+exports.get_set_scryfall = get_set_scryfall;
 function get_set_scryfall(set) {
   if (set == undefined) return "";
   let s = db.sets[set].scryfall;
@@ -220,6 +237,7 @@ function get_set_scryfall(set) {
 }
 
 //
+exports.get_set_code = get_set_code;
 function get_set_code(set) {
   if (set == undefined) return "";
   let s = db.sets[set].code;
@@ -227,6 +245,8 @@ function get_set_code(set) {
   return s;
 }
 
+//
+exports.getRaritySortValue = getRaritySortValue;
 function getRaritySortValue(rarity) {
   rarity = rarity.toLowerCase();
   switch (rarity) {
@@ -244,7 +264,9 @@ function getRaritySortValue(rarity) {
       return 0;
   }
 }
+
 //
+exports.collectionSortRarity = collectionSortRarity;
 function collectionSortRarity(a, b) {
   a = db.card(a);
   b = db.card(b);
@@ -266,6 +288,7 @@ function collectionSortRarity(a, b) {
 //        effects. `get*` functions should not have side effects.
 // FIXME: Rename to camelCase to match javsascript function naming.
 
+exports.get_deck_colors = get_deck_colors;
 function get_deck_colors(deck) {
   var colorIndices = [];
   try {
@@ -316,6 +339,7 @@ function get_deck_colors(deck) {
 }
 
 //
+exports.get_wc_missing = get_wc_missing;
 function get_wc_missing(deck, grpid, isSideboard) {
   let mainQuantity = 0;
   let mainMatches = deck.mainDeck.filter(card => card.id == grpid);
@@ -363,6 +387,7 @@ function get_wc_missing(deck, grpid, isSideboard) {
 }
 
 //
+exports.get_deck_missing = get_deck_missing;
 function get_deck_missing(deck) {
   let missing = { rare: 0, common: 0, uncommon: 0, mythic: 0 };
   let alreadySeenIds = new Set(); // prevents double counting cards across main/sideboard
@@ -383,6 +408,7 @@ function get_deck_missing(deck) {
 }
 
 //
+exports.getCardsMissingCount = getCardsMissingCount;
 function getCardsMissingCount(deck, grpid) {
   let mainMissing = get_wc_missing(deck, grpid, false);
   let sideboardMissing = get_wc_missing(deck, grpid, true);
@@ -390,6 +416,7 @@ function getCardsMissingCount(deck, grpid) {
 }
 
 //
+exports.getBoosterCountEstimate = getBoosterCountEstimate;
 function getBoosterCountEstimate(wildcards) {
   let boosterCost = 0;
   let boosterEstimates = {
@@ -408,6 +435,7 @@ function getBoosterCountEstimate(wildcards) {
 }
 
 //
+exports.get_deck_types_ammount = get_deck_types_ammount;
 function get_deck_types_ammount(deck) {
   var types = { art: 0, cre: 0, enc: 0, ins: 0, lan: 0, pla: 0, sor: 0 };
 
@@ -428,6 +456,7 @@ function get_deck_types_ammount(deck) {
 }
 
 //
+exports.get_deck_export = get_deck_export;
 function get_deck_export(deck) {
   let str = "";
   deck.mainDeck = removeDuplicates(deck.mainDeck);
@@ -502,6 +531,7 @@ function get_deck_export(deck) {
 }
 
 //
+exports.get_deck_export_txt = get_deck_export_txt;
 function get_deck_export_txt(deck) {
   var str = "";
   deck.mainDeck = removeDuplicates(deck.mainDeck);
@@ -532,6 +562,7 @@ function get_deck_export_txt(deck) {
 }
 
 //
+exports.timeSince = timeSince;
 function timeSince(_date) {
   var seconds = Math.floor((new Date() - _date) / 1000);
 
@@ -554,16 +585,19 @@ function timeSince(_date) {
 }
 
 //
+exports.replaceAll = replaceAll;
 function replaceAll(str, find, replace) {
   return str.replace(new RegExp(find, "g"), replace);
 }
 
 //
+exports.urlDecode = urlDecode;
 function urlDecode(url) {
   return decodeURIComponent(url.replace(/\+/g, " "));
 }
 
 //
+exports.makeId = makeId;
 function makeId(length) {
   var ret = "";
   var possible =
@@ -575,6 +609,7 @@ function makeId(length) {
 }
 
 //
+exports.timestamp = timestamp;
 function timestamp() {
   return Math.floor(Date.now() / 1000);
 }
@@ -582,6 +617,7 @@ function timestamp() {
 // Converts an integer number of seconds into a string of either:
 // HH:MM:SS or MM:SS depending on if the duration
 // is longer than an hour
+exports.toMMSS = toMMSS;
 function toMMSS(sec_num) {
   var hours = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - hours * 3600) / 60);
@@ -601,6 +637,7 @@ function toMMSS(sec_num) {
 }
 
 //
+exports.toDDHHMMSS = toDDHHMMSS;
 function toDDHHMMSS(sec_num) {
   let dd = Math.floor(sec_num / 86400);
   let hh = Math.floor((sec_num - dd * 86400) / 3600);
@@ -619,6 +656,7 @@ ${seconds}`;
 }
 
 //
+exports.toHHMMSS = toHHMMSS;
 function toHHMMSS(sec_num) {
   var hours = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - hours * 3600) / 60);
@@ -637,6 +675,7 @@ function toHHMMSS(sec_num) {
 }
 
 //
+exports.toHHMM = toHHMM;
 function toHHMM(sec_num) {
   var hours = Math.floor(sec_num / 3600);
   var minutes = Math.floor((sec_num - hours * 3600) / 60);
@@ -650,11 +689,13 @@ function toHHMM(sec_num) {
 }
 
 //
+exports.add = add;
 function add(a, b) {
   return a + b;
 }
 
 //
+exports.objectClone = objectClone;
 function objectClone(originalObject) {
   return JSON.parse(JSON.stringify(originalObject));
 }

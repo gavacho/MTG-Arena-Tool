@@ -2,11 +2,11 @@
 global
   cards
   cardsNew
-  get_card_image
 */
 
 const db = require("../shared/database");
 const { createDivision, queryElements: $$ } = require("../shared/dom-fns");
+const { get_card_image } = require("../shared/util");
 
 let renderer = 0;
 

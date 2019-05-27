@@ -1,9 +1,9 @@
 "use strict";
 /*
-globals
-  hideLoadingBars,
-  showLoadingBars
+global
   $
+  hideLoadingBars
+  showLoadingBars
 */
 
 const { createDivision } = require("../shared/dom-fns");

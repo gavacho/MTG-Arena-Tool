@@ -1,23 +1,21 @@
 /*
 global
-  authToken,
-  db,
-  discordTag,
-  filteredWildcardsSet,
-  ipc_send,
-  playerData,
-  rewards_daily_ends,
-  rewards_weekly_ends,
-  shell,
-  showLoadingBars,
-  toHHMMSS,
-  toDDHHMMSS,
-  tournamentCreate,
-  timestamp,
+  authToken
+  discordTag
+  filteredWildcardsSet
+  ipc_send
+  playerData
+  rewards_daily_ends
+  rewards_weekly_ends
+  showLoadingBars
+  tournamentCreate
 */
 
+const { shell } = require("electron");
+const db = require("../shared/database");
 const { queryElements: $$, createDivision } = require("../shared/dom-fns");
 const { addCardHover } = require("../shared/card-hover");
+const { toHHMMSS, toDDHHMMSS, timestamp } = require("../shared/util");
 
 let usersActive;
 let tournaments_list;

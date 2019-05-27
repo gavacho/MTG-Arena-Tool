@@ -1,13 +1,9 @@
-/*
-global
-  shell,
-  get_wc_missing,
-  get_set_scryfall,
-*/
-const db = require("./database.js");
 const _ = require("lodash");
+const { shell } = require("electron");
+const db = require("./database.js");
 const { createDivision } = require("../shared/dom-fns");
 const { addCardHover } = require("../shared/card-hover");
+const { get_wc_missing, get_set_scryfall } = require("../shared/util");
 
 const { CARD_TILE_FLAT } = require("./constants.js");
 

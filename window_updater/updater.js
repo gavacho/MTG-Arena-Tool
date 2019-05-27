@@ -1,6 +1,4 @@
-const electron = require("electron");
-
-const { remote } = require("electron");
+const { ipcRenderer: ipc, remote } = require("electron");
 
 if (!remote.app.isPackaged) {
   const { openNewGitHubIssue, debugInfo } = require("electron-util");
@@ -16,8 +14,6 @@ if (!remote.app.isPackaged) {
     }
   });
 }
-
-const ipc = electron.ipcRenderer;
 
 //
 ipc.on("update_progress", (event, state) => {

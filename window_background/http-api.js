@@ -1,20 +1,22 @@
 /*
 global
-  tokenAuth,
-  decks,
-  rstore,
-  loadPlayerConfig,
-  playerData,
-  ipc_send,
-  debugNet,
-  store,
-  makeId,
-  debugLog,
-  syncUserData,
-  sha1
+  tokenAuth
+  decks
+  rstore
+  loadPlayerConfig
+  playerData
+  ipc_send
+  debugNet
+  store
+  debugLog
+  syncUserData
 */
+
+const electron = require("electron");
 const async = require("async");
 const qs = require("qs");
+const { makeId } = require("../shared/util");
+
 let metadataState = false;
 
 var httpAsync = [];
@@ -430,7 +432,7 @@ function httpAuth(user, pass) {
     playerid: playerData.arenaId,
     playername: encodeURIComponent(playerData.name),
     mtgaversion: playerData.arenaVersion,
-    version: window.electron.remote.app.getVersion()
+    version: electron.remote.app.getVersion()
   });
 }
 

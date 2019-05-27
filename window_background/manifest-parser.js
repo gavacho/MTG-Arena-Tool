@@ -1,7 +1,7 @@
 /*
 global
-  fs,
-  path,
+  fs
+  path
   electron
 */
 

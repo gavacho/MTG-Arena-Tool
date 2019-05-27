@@ -1,22 +1,5 @@
-/*
-global
-  compare_archetypes,
-  db,
-  get_rank_index,
-  playerDataDefault,
-  objectClone,
-*/
-const {
-  HIDDEN_PW,
-  IPC_BACKGROUND,
-  IPC_OVERLAY,
-  IPC_MAIN,
-  CARD_TILE_ARENA,
-  CARD_TILE_FLAT
-} = require("../shared/constants.js");
-
-var electron = require("electron");
-const { remote, app, net, clipboard } = require("electron");
+const electron = require("electron");
+const { remote, app, net, clipboard, ipcRenderer: ipc } = require("electron");
 
 if (!remote.app.isPackaged) {
   const { openNewGitHubIssue, debugInfo } = require("electron-util");
@@ -33,25 +16,37 @@ if (!remote.app.isPackaged) {
   });
 }
 
+const _ = require("lodash");
 const path = require("path");
 const Store = require("electron-store");
 const fs = require("fs");
 const sha1 = require("js-sha1");
-const ipc = electron.ipcRenderer;
 
+const httpApi = require("./http-api");
+const manifestParser = require("./manifest-parser");
+const greToClientInterpreter = require("./gre-to-client-interpreter");
+const Deck = require("../shared/deck.js");
+const db = require("../shared/database");
+const { hypergeometricRange } = require("../shared/stats-fns");
+const {
+  compare_archetypes,
+  get_rank_index,
+  playerDataDefault,
+  objectClone
+} = require("../shared/util");
+const {
+  HIDDEN_PW,
+  IPC_BACKGROUND,
+  IPC_OVERLAY,
+  IPC_MAIN,
+  CARD_TILE_ARENA,
+  CARD_TILE_FLAT
+} = require("../shared/constants.js");
 const {
   unleakString,
   parseWotcTime,
   normaliseFields
 } = require("./background-util");
-
-const _ = require("lodash");
-
-const { hypergeometricRange } = require("../shared/stats-fns");
-const httpApi = require("./http-api");
-const manifestParser = require("./manifest-parser");
-const greToClientInterpreter = require("./gre-to-client-interpreter");
-const Deck = require("../shared/deck.js");
 const {
   onLabelOutLogInfo,
   onLabelGreToClient,

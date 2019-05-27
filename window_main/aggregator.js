@@ -1,19 +1,23 @@
 "use strict";
 /*
-globals
+global
+  matchesHistory
+*/
+
+const db = require("../shared/database.js");
+const {
   doesDeckStillExist,
   get_deck_colors,
   getDeck,
   getReadableEvent,
-  getRecentDeckName,
-  matchesHistory
-*/
+  getRecentDeckName
+} = require("../shared/util");
+
 const {
   COLORS_ALL,
   COLORS_BRIEF,
   DEFAULT_TILE
 } = require("../shared/constants.js");
-const db = require("../shared/database.js");
 
 // Default filter values
 const DEFAULT_DECK = "All Decks";

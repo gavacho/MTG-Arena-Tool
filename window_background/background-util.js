@@ -1,10 +1,10 @@
 /*
-globals
-  logLanguage,
-  _ 
+global
+  logLanguage
 */
 // Utility functions that belong only to background
 
+const _ = require("lodash");
 const parse = require("date-fns").parse;
 
 // These were tested briefly , but hey are all taken from actual logs

@@ -1,31 +1,33 @@
 /*
 global
-  Aggregator,
-  allMatches,
-  decks,
-  economyHistory,
-  FilterPanel,
-  formatPercent,
-  get_deck_missing,
-  getBoosterCountEstimate,
-  getDeck,
-  getReadableFormat,
-  hideLoadingBars,
-  getWinrateClass,
-  ipc_send,
-  makeResizable,
-  ListItem,
-  openDeck,
-  sidebarActive,
-  sidebarSize,
-  sort_decks,
-  getTagColor,
-  setTagColor,
+  Aggregator
+  allMatches
+  decks
+  economyHistory
+  FilterPanel
+  formatPercent
+  hideLoadingBars
+  getWinrateClass
+  ipc_send
+  makeResizable
+  ListItem
+  openDeck
+  sidebarActive
+  sidebarSize
+  sort_decks
+  getTagColor
+  setTagColor
   StatsPanel
 */
 
 const _ = require("lodash");
 const { createDivision } = require("../shared/dom-fns");
+const {
+  get_deck_missing,
+  getBoosterCountEstimate,
+  getDeck,
+  getReadableFormat
+} = require("../shared/util");
 
 const { MANA, CARD_RARITIES } = require("../shared/constants.js");
 

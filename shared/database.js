@@ -1,6 +1,5 @@
-const electron = require("electron");
+const { ipcRenderer: ipc } = require("electron");
 const fs = require("fs");
-const ipc = electron.ipcRenderer;
 
 const otherKeys = [
   "sets",

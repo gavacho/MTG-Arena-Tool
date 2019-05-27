@@ -1,26 +1,27 @@
 /*
 global
-  change_background,
-  compare_cards,
-  cardStyle,
-  decks,
-  drawDeck,
-  drawDeckVisual,
-  get_deck_export,
-  ipc_send,
-  makeId,
-  objectClone,
-  pop,
-  playerData,
-  timestamp,
-  toHHMMSS,
-  urlDecode,
-  userName,
+  change_background
+  cardStyle
+  decks
+  drawDeck
+  drawDeckVisual
+  ipc_send
+  pop
+  playerData
 */
 
 const { queryElements: $$, createDivision } = require("../shared/dom-fns");
 const { createSelect } = require("../shared/select");
 const deckDrawer = require("../shared/deck-drawer");
+const {
+  compare_cards,
+  get_deck_export,
+  makeId,
+  objectClone,
+  timestamp,
+  toHHMMSS,
+  urlDecode
+} = require("../shared/util");
 
 let tournamentDeck = null;
 let currentDeck = null;
