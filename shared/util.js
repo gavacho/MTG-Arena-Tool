@@ -19,8 +19,6 @@ const {
 
 const db = require("../shared/database.js");
 
-const Colors = require("../shared/colors.js");
-
 var renderer = 0;
 
 var playerDataDefault = {
