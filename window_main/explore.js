@@ -20,6 +20,8 @@ globals
 */
 const { MANA, COLORS_BRIEF, DEFAULT_TILE } = require("../shared/constants.js");
 
+const _ = require("lodash");
+
 let filterWCC = 0;
 let filterWCU = 0;
 let filterWCR = 0;
@@ -462,7 +464,7 @@ function deckLoad(_deck, index) {
         ["wc_explore_cost", "wc_" + raritySort[key]],
         _deck.wildcards[key]
       );
-      wc.title = raritySort[key].capitalize() + " wildcards needed.";
+      wc.title = _.capitalize(raritySort[key]) + " wildcards needed.";
       flcf.appendChild(wc);
       n++;
     }
@@ -598,7 +600,7 @@ function eventLoad(event, index) {
         ["wc_explore_cost", "wc_" + raritySort[key]],
         event.wildcards[key]
       );
-      wc.title = raritySort[key].capitalize() + " wldcards needed.";
+      wc.title = _.capitalize(raritySort[key]) + " wldcards needed.";
       flcf.appendChild(wc);
       n++;
     }

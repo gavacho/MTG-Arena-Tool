@@ -24,6 +24,8 @@ global
   setTagColor,
   StatsPanel
 */
+
+const _ = require("lodash");
 const { MANA, CARD_RARITIES } = require("../shared/constants.js");
 
 let filters = Aggregator.getDefaultFilters();
@@ -180,7 +182,7 @@ function openDecksTab(_filters = {}) {
           wc = document.createElement("div");
           wc.classList.add("wc_explore_cost");
           wc.classList.add("wc_" + cardRarity);
-          wc.title = cardRarity.capitalize() + " wldcards needed.";
+          wc.title = _.capitalize(cardRarity) + " wldcards needed.";
           wc.innerHTML =
             (ownedWildcards[cardRarity] > 0
               ? ownedWildcards[cardRarity] + "/"
