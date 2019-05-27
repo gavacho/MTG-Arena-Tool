@@ -244,7 +244,7 @@ var draftSet = "";
 var draftId = undefined;
 */
 
-var playerData = _.cloneDeep(playerDataDefault);
+var playerData = playerDataDefault();
 var currentMatch = null;
 
 var renderer_state = 0;

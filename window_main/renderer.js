@@ -112,7 +112,7 @@ let canLogin = false;
 let offlineMode = false;
 let lastTab = -1;
 
-let playerData = playerDataDefault;
+let playerData = playerDataDefault();
 
 let economyHistory = [];
 

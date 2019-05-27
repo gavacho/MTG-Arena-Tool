@@ -16,35 +16,37 @@ const {
 
 const db = require("../shared/database.js");
 
-var playerDataDefault = {
-  name: null,
-  userName: null,
-  arenaId: "",
-  arenaVersion: "",
-  patreon: false,
-  patreon_tier: 0,
-  decks_last_used: [],
-  rank: {
-    constructed: {
-      rank: "",
-      tier: 0,
-      step: 0,
-      steps: 4,
-      won: 0,
-      lost: 0,
-      drawn: 0
-    },
-    limited: {
-      rank: "",
-      tier: 0,
-      step: 0,
-      steps: 4,
-      won: 0,
-      lost: 0,
-      drawn: 0
+function playerDataDefault() {
+  return {
+    name: null,
+    userName: null,
+    arenaId: "",
+    arenaVersion: "",
+    patreon: false,
+    patreon_tier: 0,
+    decks_last_used: [],
+    rank: {
+      constructed: {
+        rank: "",
+        tier: 0,
+        step: 0,
+        steps: 4,
+        won: 0,
+        lost: 0,
+        drawn: 0
+      },
+      limited: {
+        rank: "",
+        tier: 0,
+        step: 0,
+        steps: 4,
+        won: 0,
+        lost: 0,
+        drawn: 0
+      }
     }
-  }
-};
+  };
+}
 
 //
 function get_card_image(cardObj) {
